@@ -1,0 +1,30 @@
+# ORBIT (AXONIA) — axonia.orbit.v1
+
+## Stack e alojamento
+
+- Next.js com **TypeScript strict**.
+- **Supabase** para dados e auth server-side; **Vercel** para alojamento da app quando aplicável.
+
+## Multi-tenant e dados
+
+- **`tenant_id` obrigatório** onde fizer sentido no modelo de dados e nas queries.
+- **RLS (Row Level Security) obrigatório** nas tabelas expostas à aplicação.
+- **Nunca** expor `service_role` / `service_role_key` no frontend ou em código cliente.
+
+## Base de dados
+
+- **Migrations imutáveis**: não reescrever histórico; corrigir com novas migrations.
+
+## Documentação e versão
+
+- Documentação viva **no repositório** (`docs/`, README, CHANGELOG).
+- Versão oficial: ficheiro **`VERSION`** na raiz (única fonte de verdade).
+- Em alterações **significativas**, atualizar **`CHANGELOG.md`** (Keep a Changelog).
+
+## Classificação de código
+
+- Classificar novas peças como **core**, **módulo** ou **plugin** (ver `docs/module-boundaries.md`).
+
+## Decisões e autonomia
+
+- **Não tomar decisões arquitectónicas sozinho**: propor, documentar em `docs/decision-log.md` quando for decisão relevante, e alinhar com o que já está escrito no repo.
